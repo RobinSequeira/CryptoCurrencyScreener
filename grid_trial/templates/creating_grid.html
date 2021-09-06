@@ -22,7 +22,7 @@
 <div class="grid-container">
     {% for charts in elements %}
     <div>
-        {{charts|e}}
+        {{charts|safe}}
     </div>
     {% endfor %}
 </div>

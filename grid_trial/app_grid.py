@@ -25,37 +25,41 @@ def index():
     symbol = topN()
     elements = []
     for i in range(len(symbol)):
-        elements.append(f"""<div>
-            <div class="tradingview-widget-container">
-                <div id="{i}"></div>
-                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{symbol[i]}/?exchange=BINANCE" rel="noopener" target="_blank"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-                <script type="text/javascript">
-                new TradingView.widget(
-                {{
-                "width": 490,
-                "height": 305,
-                "symbol": "BINANCE:{symbol[i]}",
-                "interval": "15",
-                "timezone": "Etc/UTC",
-                "theme": "dark",
-                "style": "1",
-                "locale": "en",
-                "toolbar_bg": "#f1f3f6",
-                "enable_publishing": false,
-                "allow_symbol_change": true,
-                "studies": [
-                "BB@tv-basicstudies",
-                "IchimokuCloud@tv-basicstudies",
-                "MACD@tv-basicstudies",
-                "StochasticRSI@tv-basicstudies",
-                "TripleEMA@tv-basicstudies",
-                "Volume@tv-basicstudies"],
-                "container_id": "{i}"
-            }}
-                );
-                </script>
-        </div>""")
+        elements.append(f"""
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div id="tradingview_6c7af"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{symbol[i]}/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">{symbol[i]} Chart</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {{
+  "width": 490,
+  "height": 305,
+  "symbol": "BINANCE:{symbol[i]}",
+  "interval": "15",
+  "timezone": "Asia/Kolkata",
+  "theme": "dark",
+  "style": "1",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "hide_side_toolbar": false,
+  "allow_symbol_change": true,
+  "studies": [
+    "BB@tv-basicstudies",
+    "IchimokuCloud@tv-basicstudies",
+    "MACD@tv-basicstudies",
+    "StochasticRSI@tv-basicstudies",
+    "TripleEMA@tv-basicstudies",
+    "Volume@tv-basicstudies"
+  ],
+  "container_id": "{i}"
+}}
+  );
+  </script>
+</div>
+<!-- TradingView Widget END -->""")
     print(len(elements))
     # trial = ['1','2','3']
     return flask.render_template('creating_grid.html', elements=elements)
