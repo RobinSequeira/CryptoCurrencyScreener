@@ -44,10 +44,9 @@ def index():
   "locale": "en",
   "toolbar_bg": "#f1f3f6",
   "enable_publishing": false,
-  "hide_side_toolbar": false,
+  "hide_side_toolbar": true,
   "allow_symbol_change": true,
   "studies": [
-    "StochasticRSI@tv-basicstudies",
     "Volume@tv-basicstudies"
   ],
   "container_id": "{i}"
