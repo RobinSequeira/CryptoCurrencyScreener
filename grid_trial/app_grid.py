@@ -61,7 +61,6 @@ def index():
 </div>
 <!-- TradingView Widget END -->""")
     print(len(elements))
-    # trial = ['1','2','3']
     return flask.render_template('creating_grid.html', elements=elements)
 
 if __name__ == "__main__":
