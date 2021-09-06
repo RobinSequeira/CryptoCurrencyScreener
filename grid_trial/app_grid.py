@@ -49,11 +49,7 @@ def index():
   "hide_side_toolbar": false,
   "allow_symbol_change": true,
   "studies": [
-    "BB@tv-basicstudies",
-    "IchimokuCloud@tv-basicstudies",
-    "MACD@tv-basicstudies",
     "StochasticRSI@tv-basicstudies",
-    "TripleEMA@tv-basicstudies",
     "Volume@tv-basicstudies"
   ],
   "container_id": "{i}"
