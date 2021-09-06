@@ -1,0 +1,31 @@
+
+<html>
+    <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <meta charset='utf-8'>
+      <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+      <title>Page Title</title>
+      <meta name='viewport' content='width=device-width, initial-scale=1'>
+      <script>
+      jQuery(document).ready(function(){
+          console.log("entered the script")
+      $.noConflict();
+      function check(){
+        jQuery.get( 'http://127.0.0.1:5000/data', function( data ) {
+          console.log(data["body"])
+          for (var i = 0; i < data['body'].length; i++) {
+            jQuery("p").append(data['body'][i]);}
+      
+            setTimeout(check, 30000)}
+        );
+      };
+      check();
+    
+    
+    });
+      </script>
+    </head>
+    <body><p></p>
+    </body>
+    </html>
+    
