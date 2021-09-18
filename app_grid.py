@@ -58,6 +58,56 @@ def index():
     print(len(elements))
     return flask.render_template('creating_grid.html', elements=elements)
 
+
+@app.route('/top')
+def tooop():
+  symbol = topN()
+  elements = []
+  for i in range(len(symbol)):
+    elements.append(f"""
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div id="tradingview_6c7af"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {{
+  "width": 490,
+  "height": 305,
+  "symbol": "BINANCE:{symbol[i]}",
+  "interval": "15",
+  "timezone": "Asia/Kolkata",
+  "theme": "dark",
+  "style": "1",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "hide_side_toolbar": true,
+  "allow_symbol_change": true,
+  "studies": [
+    "Volume@tv-basicstudies"
+  ],
+  "container_id": "{i}"
+}}
+  );
+  </script>
+</div>
+<!-- TradingView Widget END -->""")
+  print(len(elements))
+  return flask.render_template('top.html',elements=elements)
+
+@app.route('/pinned')
+def tooop1():
+  return flask.render_template('pinned.html')
+
+@app.route('/buy_sell')
+def toop2():
+  return flask.render_template('buy_sell.html')
+
+@app.route('/positions')
+def toop3():
+  return flask.render_template('positions.html')
+
 if __name__ == "__main__":
     app.run(use_reloader=True)
     app.run(host= '127.0.0.1', port = 3500)
