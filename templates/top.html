@@ -30,7 +30,7 @@
       background-color: rgba(255, 255, 255, 0.8);
       text-align: center;
       padding: 20px;
-      font-size: 30px;
+      font-size: 20px;
     }
     
     .item1 {
@@ -60,7 +60,7 @@
           font-size: 16px;
           margin: 10px 10px;
           cursor: pointer;
-          width: 20%;
+          width: 15%;
         }
         </style>
     <body>
@@ -72,7 +72,7 @@
                 <a href="./top" class="button">TOP</a>
                 <a href="./pinned" class="button">PINNED</a>
                 <a href="./buy_sell" class="button">BUY/SELL</a>
-                <a href="./positions" class="button">POSITIONS></a>
+                <a href="./positions" class="button">POSITIONS</a>
 
             </div>
             <div class="grid-item item2">
@@ -85,35 +85,39 @@
                     <script>
                     jQuery(document).ready(function(){
                         console.log("entered the script") 
-                    $("button").click(function() {
+                    $(".buttonintervals").click(function() {
                     var interval_button = $(this).val();
                     // alert(fired_button);
                     console.log(interval_button);
-                    $.ajax({
-                      url : '/top',
-                      type : 'POST',
-                      data : {'Interval': interval_button},
-                      success: function(response){
-                        console.log(response);
-                      },
-                      error: function(error){
-                        console.log(error);
-                      }
+                    // $.ajax({
+                    //   url : '/top',
+                    //   type : 'GET',
+                    //   data : {'Interval': interval_button},
+                    //   success: function(response){
+                    //     console.log(response);
+                    //   },
+                    //   error: function(error){
+                    //     console.log(error);
+                    //   }
+                    window.location.href = `/top?Interval=${interval_button}`;
+                    return false;
                     });
-                    });
+          
                 });
                 </script>
-                <button class="buttonintervals" value="15m" method = 'post'>15m</button>
-                <button class="buttonintervals" value="1h">1h</button>
-                <button class="buttonintervals" value="4h">4h</button>
-                <button class="buttonintervals" value="D">D</button>
+                <button class="buttonintervals" value="5" >5m</button>
+                <button class="buttonintervals" value="15" >15m</button>
+                <button class="buttonintervals" value="60" >1h</button>
+                <button class="buttonintervals" value="240" >4h</button>
+                <button class="buttonintervals" value="D" >1D</button>
+                <button class="buttonintervals" value="W" >1W</button>
             </div>
             <div class="grid-item item3">
                 <h3>Strategies</h3>
-                <button class="buttonintervals" value="Percent Change">Percent Change</button>
-                <button class="buttonintervals" value="Doji">Doji</button>
-                <button class="buttonintervals" value="MACD">MACD</button>
-                <button class="buttonintervals" value="Golden Egg">GOLDEN EGG</button>
+                <button class="buttonstrategies" value="Percent Change">Percent Change</button>
+                <button class="buttonstrategies" value="Doji">Doji</button>
+                <button class="buttonstrategies" value="MACD">MACD</button>
+                <button class="buttonstrategies" value="Golden Egg">GOLDEN EGG</button>
             </div>  
             <div class="grid-item item4">4</div>
             <div class="grid-item item5">

@@ -23,6 +23,9 @@ def topN():
     top_symbols =[i[0] for i in symbol_24hrPercent_volume]
     return top_symbols
 
+def MACD():
+  pass
+
 @app.route('/')
 def index():
     symbol = topN()
@@ -63,11 +66,16 @@ def index():
 
 @app.route('/top',methods = ['GET' , 'POST'])
 def tooop():
-  if request.method == 'POST':
-    print(request.form['Interval'])
-    interval = request.form['Interval']
-  else:
-    interval = '15'
+  if request.method == 'GET':
+    # import ipdb
+    # ipdb.set_trace()
+    # print(request.form['Interval'])
+    # import ipdb
+    # ipdb.set_trace()
+    interval = request.args.get('Interval')
+    interval = interval if interval else '15' 
+  # else:
+  #   interval = '15'
 
   symbol = topN()
   elements = []
@@ -118,4 +126,4 @@ def toop3():
 
 if __name__ == "__main__":
     app.run(use_reloader=True)
-    app.run(host= '127.0.0.1', port = 3500)
+    # app.run(host= '127.0.0.1', port = 3500)
