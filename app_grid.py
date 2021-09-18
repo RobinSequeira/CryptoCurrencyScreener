@@ -1,8 +1,10 @@
 import flask
+from flask import request
 import requests
 # from markupsafe import Markup
-
+print(request.__module__)
 app = flask.Flask(__name__)
+
 
 
 def topN():
@@ -59,8 +61,14 @@ def index():
     return flask.render_template('creating_grid.html', elements=elements)
 
 
-@app.route('/top')
+@app.route('/top',methods = ['GET' , 'POST'])
 def tooop():
+  if request.method == 'POST':
+    print(request.form['Interval'])
+    interval = request.form['Interval']
+  else:
+    interval = '15'
+
   symbol = topN()
   elements = []
   for i in range(len(symbol)):
@@ -75,7 +83,7 @@ def tooop():
   "width": 490,
   "height": 305,
   "symbol": "BINANCE:{symbol[i]}",
-  "interval": "15",
+  "interval": "{interval}",
   "timezone": "Asia/Kolkata",
   "theme": "dark",
   "style": "1",

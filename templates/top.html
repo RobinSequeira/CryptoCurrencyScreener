@@ -89,20 +89,31 @@
                     var interval_button = $(this).val();
                     // alert(fired_button);
                     console.log(interval_button);
+                    $.ajax({
+                      url : '/top',
+                      type : 'POST',
+                      data : {'Interval': interval_button},
+                      success: function(response){
+                        console.log(response);
+                      },
+                      error: function(error){
+                        console.log(error);
+                      }
+                    });
                     });
                 });
                 </script>
-                <button class="buttonintervals" value="15m">15m</button>
+                <button class="buttonintervals" value="15m" method = 'post'>15m</button>
                 <button class="buttonintervals" value="1h">1h</button>
                 <button class="buttonintervals" value="4h">4h</button>
                 <button class="buttonintervals" value="D">D</button>
             </div>
             <div class="grid-item item3">
                 <h3>Strategies</h3>
-                <button class="buttonintervals">Percent Change</button>
-                <button class="buttonintervals">Doji</button>
-                <button class="buttonintervals">MACD</button>
-                <input type="button" class="buttonintervals" value="Golden Egg">
+                <button class="buttonintervals" value="Percent Change">Percent Change</button>
+                <button class="buttonintervals" value="Doji">Doji</button>
+                <button class="buttonintervals" value="MACD">MACD</button>
+                <button class="buttonintervals" value="Golden Egg">GOLDEN EGG</button>
             </div>  
             <div class="grid-item item4">4</div>
             <div class="grid-item item5">
