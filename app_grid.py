@@ -113,15 +113,15 @@ def tooop():
   return flask.render_template('top.html',elements=elements)
 
 @app.route('/pinned')
-def tooop1():
+def pinned():
   return flask.render_template('pinned.html')
 
 @app.route('/buy_sell')
-def toop2():
+def buy_sell():
   return flask.render_template('buy_sell.html')
 
 @app.route('/positions')
-def toop3():
+def positions():
   return flask.render_template('positions.html')
 
 if __name__ == "__main__":
